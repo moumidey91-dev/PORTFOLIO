@@ -162,7 +162,7 @@
   align-items: center;
   position: relative;
   width: 100%;
-  height: 520px;
+  height: 540px;
 }
 
 .hero-avatar-wrapper {
@@ -237,46 +237,144 @@
 .p4 { bottom: 50%; left: -3px; }
 .p5 { top: 8%; right: 35%; }
 
-/* Floating pill-button tags */
-.hero-tag {
+/* Floating Cards Styling (Glassmorphism) */
+.floating-card {
   position: absolute;
-  padding: 6px 14px;
-  background: rgba(14, 18, 36, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  font-family: var(--font-heading);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #fff;
+  padding: 10px 14px;
+  background: rgba(11, 14, 26, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   z-index: 10;
-  white-space: nowrap;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   transition: all var(--transition-normal);
 }
 
-.hero-tag:hover {
-  transform: translateY(-2px) scale(1.06) !important;
-  border-color: var(--primary);
-  box-shadow: 0 0 15px rgba(255, 122, 0, 0.25);
-  color: var(--primary);
-  cursor: pointer;
+.floating-card:hover {
+  transform: scale(1.06) !important;
+  border-color: rgba(255, 122, 0, 0.4);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 122, 0, 0.2);
 }
 
-/* Tag placements and floats */
-.h-ai { top: 2%; left: -10%; animation: tag-float-1 5s ease-in-out infinite; }
-.h-da { top: 0%; right: -12%; animation: tag-float-2 6.2s ease-in-out infinite; }
-.h-ml { top: 18%; right: -18%; animation: tag-float-3 5.5s ease-in-out infinite; }
-.h-py { top: 40%; right: -15%; animation: tag-float-1 4.5s ease-in-out infinite; }
-.h-re { bottom: 28%; right: -12%; animation: tag-float-2 6s ease-in-out infinite; }
-.h-rs { bottom: 10%; right: -8%; animation: tag-float-3 5.8s ease-in-out infinite; }
-.h-ds { top: 22%; left: -18%; animation: tag-float-1 6.5s ease-in-out infinite; }
-.h-an { top: 46%; left: -15%; animation: tag-float-2 5.2s ease-in-out infinite; }
-.h-fs { bottom: 30%; left: -14%; animation: tag-float-3 6.8s ease-in-out infinite; }
-.h-dl { bottom: 12%; left: -10%; animation: tag-float-1 4.8s ease-in-out infinite; }
-.h-nn { bottom: 0%; left: 8%; animation: tag-float-2 6.3s ease-in-out infinite; }
-.h-db { bottom: -2%; right: 12%; animation: tag-float-3 5.7s ease-in-out infinite; }
+/* Card positions and float animations */
+.card-ai {
+  top: 6%;
+  left: -8%;
+  animation: card-float-1 5.5s ease-in-out infinite;
+}
+
+.card-data-science {
+  top: 2%;
+  right: -10%;
+  width: 145px;
+  animation: card-float-2 6.5s ease-in-out infinite;
+}
+
+.card-python-dev {
+  top: 38%;
+  right: -14%;
+  width: 155px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  animation: card-float-3 4.8s ease-in-out infinite;
+}
+
+.card-ml {
+  bottom: 24%;
+  left: -8%;
+  width: 145px;
+  animation: card-float-3 6.8s ease-in-out infinite;
+}
+
+.card-researcher {
+  bottom: 8%;
+  right: -2%;
+  width: 130px;
+  animation: card-float-2 6s ease-in-out infinite;
+}
+
+/* Floating Card Inner UI elements */
+.ai-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 10px rgba(255, 122, 0, 0.2);
+}
+
+.ai-subtitle {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.8px;
+  line-height: 1.25;
+}
+
+.card-header-mini {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.2px;
+}
+
+.card-text-inline {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  white-space: nowrap;
+}
+
+.chart-svg {
+  width: 100%;
+  height: auto;
+  margin-top: 4px;
+  overflow: visible;
+}
+
+/* Research Card specific styling */
+.research-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.research-icon {
+  flex-shrink: 0;
+}
+
+.research-text-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.research-label-mini {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+.research-line {
+  height: 2.5px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 1px;
+}
+
+.research-line.medium { width: 70%; }
 
 /* Keyframe animations */
 @keyframes spin-orbit-cw {
@@ -299,21 +397,21 @@
   animation: card-float-image 6s ease-in-out infinite;
 }
 
-@keyframes tag-float-1 {
+@keyframes card-float-1 {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
 
-@keyframes tag-float-2 {
+@keyframes card-float-2 {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-14px); }
   100% { transform: translateY(0); }
 }
 
-@keyframes tag-float-3 {
+@keyframes card-float-3 {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-7px); }
   100% { transform: translateY(0); }
 }
 
@@ -407,8 +505,17 @@
     max-height: 320px;
   }
 
-  .hero-tag {
-    font-size: 0.65rem;
-    padding: 4px 10px;
+  .floating-card {
+    padding: 6px 10px;
+    gap: 2px;
   }
+  .ai-title { font-size: 1.2rem; }
+  .ai-subtitle { font-size: 0.5rem; }
+  .card-header-mini, .card-text-inline, .research-label-mini { font-size: 0.65rem; }
+  
+  .card-ai { top: 5%; left: 0%; scale: 0.9; }
+  .card-data-science { top: 2%; right: 0%; scale: 0.9; }
+  .card-python-dev { top: 38%; right: -2%; scale: 0.9; }
+  .card-ml { bottom: 18%; left: -2%; scale: 0.9; }
+  .card-researcher { bottom: 4%; right: 8%; scale: 0.9; }
 }
