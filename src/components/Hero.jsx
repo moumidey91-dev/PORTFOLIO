@@ -1,6 +1,6 @@
 import React from 'react';
 import { Download, Mail } from 'lucide-react';
-import heroAvatar from '../assets/hero_avatar.jpg';
+import heroAvatar from '../assets/hero_avatar.png';
 import './Hero.css';
 
 // Custom SVG Icon Components to prevent dependency export issues
@@ -80,8 +80,37 @@ export default function Hero() {
 
         {/* Hero Graphic */}
         <div className="hero-graphic-container">
+          {/* Orbit Background */}
+          <div className="hero-orbits">
+            <div className="orbit orbit-1">
+              <div className="orbit-particle p1"></div>
+              <div className="orbit-particle p2"></div>
+            </div>
+            <div className="orbit orbit-2">
+              <div className="orbit-particle p3"></div>
+            </div>
+            <div className="orbit orbit-3">
+              <div className="orbit-particle p4"></div>
+              <div className="orbit-particle p5"></div>
+            </div>
+          </div>
+
           <div className="hero-avatar-wrapper animate-float">
             <img src={heroAvatar} alt="Moumi Dey Avatar" className="hero-avatar" />
+            
+            {/* Floating Environment Pill Buttons */}
+            <div className="hero-tag h-ai">AI</div>
+            <div className="hero-tag h-da">Data Analysis</div>
+            <div className="hero-tag h-ml">Machine Learning</div>
+            <div className="hero-tag h-py">Python</div>
+            <div className="hero-tag h-re">React</div>
+            <div className="hero-tag h-rs">Research</div>
+            <div className="hero-tag h-ds">Data Science</div>
+            <div className="hero-tag h-an">Analytics</div>
+            <div className="hero-tag h-fs">Full Stack</div>
+            <div className="hero-tag h-dl">Deep Learning</div>
+            <div className="hero-tag h-nn">Neural Network</div>
+            <div className="hero-tag h-db">Database</div>
           </div>
         </div>
       </div>
