@@ -167,12 +167,6 @@ export default function About() {
             <p className="about-para">
               I'm a passionate B.Tech Computer Science Engineering student with a strong interest in Data Science, Artificial Intelligence, Machine Learning, Full Stack Development, and AI Research.
             </p>
-            <p className="about-para">
-              I enjoy transforming complex data into meaningful insights, building intelligent machine learning solutions, and creating scalable modern web applications. I love combining analytical thinking with software engineering to solve real-world challenges using innovative technologies.
-            </p>
-            <p className="about-para">
-              I continuously learn emerging technologies, build practical projects, contribute to research, and improve my technical expertise every day. My mission is to create AI-powered solutions that make technology smarter, faster, and more impactful.
-            </p>
           </div>
         </div>
       </div>
