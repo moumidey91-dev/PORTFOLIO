@@ -121,10 +121,6 @@ export default function About() {
 
       <div className="section-header">
         <h2 className="section-title">About Me</h2>
-        <p className="section-subtitle">Building Intelligent Solutions with AI, Data & Code</p>
-        <p className="section-desc-header">
-          Passionate about transforming ideas into intelligent digital solutions through Data Science, Artificial Intelligence, Machine Learning, and Full Stack Development.
-        </p>
       </div>
 
       <div className="about-container">
