@@ -35,9 +35,9 @@
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: 60px;
+  gap: 50px;
   width: 100%;
 }
 
@@ -167,8 +167,9 @@
 
 .hero-avatar-wrapper {
   position: relative;
-  width: 360px;
-  height: 440px;
+  width: 100%;
+  max-width: 432px; /* Matches exact 819:1024 (0.8) image ratio */
+  aspect-ratio: 819 / 1024;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,123 +182,66 @@
   height: 100%;
   object-fit: contain;
   z-index: 5;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Concentric Background Orbits */
-.hero-orbits {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.orbit {
-  position: absolute;
-  border: 1px dashed rgba(255, 122, 0, 0.08);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.orbit-1 {
-  width: 500px;
-  height: 500px;
-  animation: spin-orbit-cw 35s linear infinite;
-}
-
-.orbit-2 {
-  width: 400px;
-  height: 400px;
-  animation: spin-orbit-ccw 28s linear infinite;
-}
-
-.orbit-3 {
-  width: 300px;
-  height: 300px;
-  animation: spin-orbit-cw 20s linear infinite;
-}
-
-/* Orbiting Particles */
-.orbit-particle {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background: #ff7a00;
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(255, 122, 0, 0.8), 0 0 16px rgba(255, 122, 0, 0.5);
-}
-
-.p1 { top: 12%; left: 24%; }
-.p2 { bottom: 12%; right: 24%; }
-.p3 { top: 50%; right: -3px; }
-.p4 { bottom: 50%; left: -3px; }
-.p5 { top: 8%; right: 35%; }
-
-/* Floating Cards Styling (Glassmorphism) */
+/* Floating Cards Styling (Glassmorphism with Solid mask background) */
 .floating-card {
   position: absolute;
   padding: 10px 14px;
-  background: rgba(11, 14, 26, 0.65);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: #03050c; /* Matches site background to perfectly mask text underneath */
+  border: 1.2px solid rgba(255, 122, 0, 0.22);
   border-radius: var(--radius-md);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   z-index: 10;
   display: flex;
   flex-direction: column;
   gap: 4px;
   transition: all var(--transition-normal);
+  pointer-events: auto;
 }
 
 .floating-card:hover {
-  transform: scale(1.06) !important;
-  border-color: rgba(255, 122, 0, 0.4);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 122, 0, 0.2);
+  transform: scale(1.08) !important;
+  border-color: var(--primary);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 122, 0, 0.35);
 }
 
-/* Card positions and float animations */
+/* Precise positions overlaying composite image cards (locks position, no card-float animations) */
 .card-ai {
-  top: 6%;
-  left: -8%;
-  animation: card-float-1 5.5s ease-in-out infinite;
+  top: 6.8%;
+  left: 14.6%;
 }
 
 .card-data-science {
-  top: 2%;
-  right: -10%;
-  width: 145px;
-  animation: card-float-2 6.5s ease-in-out infinite;
+  top: 2.9%;
+  left: 64.7%;
+  width: 140px;
 }
 
 .card-python-dev {
-  top: 38%;
-  right: -14%;
+  top: 22.4%;
+  left: 71.5%;
   width: 155px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
   padding: 10px 14px;
-  animation: card-float-3 4.8s ease-in-out infinite;
 }
 
 .card-ml {
-  bottom: 24%;
-  left: -8%;
-  width: 145px;
-  animation: card-float-3 6.8s ease-in-out infinite;
+  top: 39.5%;
+  left: 7.3%;
+  width: 140px;
 }
 
 .card-researcher {
-  bottom: 8%;
-  right: -2%;
+  top: 53.7%;
+  left: 65%;
   width: 130px;
-  animation: card-float-2 6s ease-in-out infinite;
 }
 
 /* Floating Card Inner UI elements */
@@ -376,17 +320,7 @@
 
 .research-line.medium { width: 70%; }
 
-/* Keyframe animations */
-@keyframes spin-orbit-cw {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes spin-orbit-ccw {
-  from { transform: translate(-50%, -50%) rotate(360deg); }
-  to { transform: translate(-50%, -50%) rotate(0deg); }
-}
-
+/* Float Keyframe Animation for entire wrapper */
 @keyframes card-float-image {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -395,24 +329,6 @@
 
 .animate-float {
   animation: card-float-image 6s ease-in-out infinite;
-}
-
-@keyframes card-float-1 {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-@keyframes card-float-2 {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-  100% { transform: translateY(0); }
-}
-
-@keyframes card-float-3 {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-7px); }
-  100% { transform: translateY(0); }
 }
 
 /* Responsive Breakpoints */
@@ -459,8 +375,7 @@
   }
 
   .hero-avatar-wrapper {
-    max-width: 340px;
-    max-height: 400px;
+    max-width: 380px;
   }
 }
 
@@ -501,8 +416,7 @@
   }
 
   .hero-avatar-wrapper {
-    max-width: 270px;
-    max-height: 320px;
+    max-width: 300px;
   }
 
   .floating-card {
@@ -513,9 +427,9 @@
   .ai-subtitle { font-size: 0.5rem; }
   .card-header-mini, .card-text-inline, .research-label-mini { font-size: 0.65rem; }
   
-  .card-ai { top: 5%; left: 0%; scale: 0.9; }
-  .card-data-science { top: 2%; right: 0%; scale: 0.9; }
-  .card-python-dev { top: 38%; right: -2%; scale: 0.9; }
-  .card-ml { bottom: 18%; left: -2%; scale: 0.9; }
-  .card-researcher { bottom: 4%; right: 8%; scale: 0.9; }
+  .card-ai { top: 6.8%; left: 14.6%; scale: 0.9; }
+  .card-data-science { top: 2.9%; left: 64.7%; scale: 0.9; }
+  .card-python-dev { top: 22.4%; left: 71.5%; scale: 0.9; }
+  .card-ml { top: 39.5%; left: 7.3%; scale: 0.9; }
+  .card-researcher { top: 53.7%; left: 65%; scale: 0.9; }
 }

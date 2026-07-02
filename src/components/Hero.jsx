@@ -1,6 +1,6 @@
 import React from 'react';
 import { Download, Mail } from 'lucide-react';
-import heroAvatar from '../assets/hero_avatar.png';
+import heroAvatar from '../assets/hero_avatar.jpg';
 import './Hero.css';
 
 // Custom SVG Icon Components to prevent dependency export issues
@@ -80,21 +80,6 @@ export default function Hero() {
 
         {/* Hero Graphic */}
         <div className="hero-graphic-container">
-          {/* Orbit Background */}
-          <div className="hero-orbits">
-            <div className="orbit orbit-1">
-              <div className="orbit-particle p1"></div>
-              <div className="orbit-particle p2"></div>
-            </div>
-            <div className="orbit orbit-2">
-              <div className="orbit-particle p3"></div>
-            </div>
-            <div className="orbit orbit-3">
-              <div className="orbit-particle p4"></div>
-              <div className="orbit-particle p5"></div>
-            </div>
-          </div>
-
           <div className="hero-avatar-wrapper animate-float">
             <img src={heroAvatar} alt="Moumi Dey Avatar" className="hero-avatar" />
             
@@ -177,7 +162,6 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
