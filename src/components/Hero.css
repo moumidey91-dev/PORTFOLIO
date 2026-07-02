@@ -168,7 +168,7 @@
 .hero-avatar-wrapper {
   position: relative;
   width: 100%;
-  max-width: 432px; /* Matches exact 819:1024 (0.8) image ratio */
+  max-width: 432px;
   aspect-ratio: 819 / 1024;
   display: flex;
   justify-content: center;
@@ -183,142 +183,7 @@
   object-fit: contain;
   z-index: 5;
   border-radius: var(--radius-lg);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
 }
-
-/* Floating Cards Styling (Glassmorphism with Solid mask background) */
-.floating-card {
-  position: absolute;
-  padding: 10px 14px;
-  background: #03050c; /* Matches site background to perfectly mask text underneath */
-  border: 1.2px solid rgba(255, 122, 0, 0.22);
-  border-radius: var(--radius-md);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  transition: all var(--transition-normal);
-  pointer-events: auto;
-}
-
-.floating-card:hover {
-  transform: scale(1.08) !important;
-  border-color: var(--primary);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 122, 0, 0.35);
-}
-
-/* Precise positions overlaying composite image cards (locks position, no card-float animations) */
-.card-ai {
-  top: 6.8%;
-  left: 14.6%;
-}
-
-.card-data-science {
-  top: 2.9%;
-  left: 64.7%;
-  width: 140px;
-}
-
-.card-python-dev {
-  top: 22.4%;
-  left: 71.5%;
-  width: 155px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-}
-
-.card-ml {
-  top: 39.5%;
-  left: 7.3%;
-  width: 140px;
-}
-
-.card-researcher {
-  top: 53.7%;
-  left: 65%;
-  width: 130px;
-}
-
-/* Floating Card Inner UI elements */
-.ai-title {
-  font-size: 1.5rem;
-  font-weight: 800;
-  font-family: var(--font-heading);
-  color: var(--primary);
-  line-height: 1;
-  letter-spacing: -0.5px;
-  text-shadow: 0 0 10px rgba(255, 122, 0, 0.2);
-}
-
-.ai-subtitle {
-  font-size: 0.58rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: 0.8px;
-  line-height: 1.25;
-}
-
-.card-header-mini {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: 0.2px;
-}
-
-.card-text-inline {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  font-family: var(--font-heading);
-  white-space: nowrap;
-}
-
-.chart-svg {
-  width: 100%;
-  height: auto;
-  margin-top: 4px;
-  overflow: visible;
-}
-
-/* Research Card specific styling */
-.research-content-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-}
-
-.research-icon {
-  flex-shrink: 0;
-}
-
-.research-text-lines {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  width: 100%;
-}
-
-.research-label-mini {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  font-family: var(--font-heading);
-  line-height: 1.2;
-}
-
-.research-line {
-  height: 2.5px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 1px;
-}
-
-.research-line.medium { width: 70%; }
 
 /* Float Keyframe Animation for entire wrapper */
 @keyframes card-float-image {
@@ -418,18 +283,4 @@
   .hero-avatar-wrapper {
     max-width: 300px;
   }
-
-  .floating-card {
-    padding: 6px 10px;
-    gap: 2px;
-  }
-  .ai-title { font-size: 1.2rem; }
-  .ai-subtitle { font-size: 0.5rem; }
-  .card-header-mini, .card-text-inline, .research-label-mini { font-size: 0.65rem; }
-  
-  .card-ai { top: 6.8%; left: 14.6%; scale: 0.9; }
-  .card-data-science { top: 2.9%; left: 64.7%; scale: 0.9; }
-  .card-python-dev { top: 22.4%; left: 71.5%; scale: 0.9; }
-  .card-ml { top: 39.5%; left: 7.3%; scale: 0.9; }
-  .card-researcher { top: 53.7%; left: 65%; scale: 0.9; }
 }
