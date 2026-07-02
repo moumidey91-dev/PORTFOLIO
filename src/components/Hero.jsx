@@ -1,6 +1,6 @@
 import React from 'react';
 import { Download, Mail } from 'lucide-react';
-import heroAvatar from '../assets/hero_avatar.png';
+import heroAvatar from '../assets/hero_avatar.jpg';
 import './Hero.css';
 
 // Custom SVG Icon Components to prevent dependency export issues
