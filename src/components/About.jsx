@@ -165,7 +165,13 @@ export default function About() {
           <div className="about-text-paragraphs">
             <p className="about-para para-highlight">Hi, I'm Moumi Dey.</p>
             <p className="about-para">
-              I'm a passionate B.Tech Computer Science Engineering student with a strong interest in Data Science, Artificial Intelligence, Machine Learning, Full Stack Development, and AI Research.
+              I’m a passionate B.Tech student with a strong interest in Data Science, Machine Learning, and Artificial Intelligence. I enjoy solving real-world problems using data and continuously improving my analytical skills.
+            </p>
+            <p className="about-para">
+              Currently, I’m expanding my knowledge in Python, SQL, Machine Learning, and Data Analysis while building practical projects to strengthen my technical expertise.
+            </p>
+            <p className="about-para">
+              My goal is to become a skilled Data Scientist and create intelligent, data-driven solutions that make a meaningful impact.
             </p>
           </div>
         </div>
