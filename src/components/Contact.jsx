@@ -89,7 +89,7 @@ export default function Contact() {
               <Mail className="info-icon" size={18} />
               <div>
                 <h4>Email</h4>
-                <p>moumi.dey@example.com</p>
+                <p>moumidey91@gmail.com</p>
               </div>
             </div>
 

@@ -1,85 +1,75 @@
 import React from 'react';
-import aboutAvatar from '../assets/about_avatar.png';
+import { 
+  GraduationCap, 
+  Laptop, 
+  Trophy, 
+  Target, 
+  Brain, 
+  Rocket, 
+  Calendar, 
+  User, 
+  Code
+} from 'lucide-react';
+import aboutAvatar from '../assets/about_avatar.jpg';
 import './About.css';
 
 export default function About() {
   const infoCards = [
     {
-      title: '🎓 Education',
-      content: (
-        <>
-          <div className="card-highlight">B.Tech</div>
-          <div className="card-subtitle-bold">Computer Science Engineering</div>
-          <div className="card-detail">Started in 2024</div>
-          <div className="card-detail">Currently 3rd Year</div>
-        </>
-      ),
+      title: 'Education',
+      icon: GraduationCap,
+      watermark: GraduationCap,
+      highlight: 'B.Tech',
+      subtitle: 'Computer Science Engineering',
+      type: 'education',
+      details: [
+        { icon: Calendar, text: 'Started in 2024' },
+        { icon: User, text: 'Currently 3rd Year' }
+      ],
       class: 'edu-card'
     },
     {
-      title: '💻 Projects',
-      content: (
-        <>
-          <div className="card-highlight">15+</div>
-          <div className="card-subtitle-bold">Real-world Projects</div>
-          <div className="card-tags-grid">
-            <span className="card-tag">Machine Learning</span>
-            <span className="card-tag">AI</span>
-            <span className="card-tag">Full Stack</span>
-          </div>
-        </>
-      ),
+      title: 'Projects',
+      icon: Laptop,
+      watermark: Code,
+      highlight: '15+',
+      subtitle: 'Real-world Projects',
+      type: 'projects',
+      tags: ['Machine Learning', 'AI', 'Full Stack'],
       class: 'proj-card'
     },
     {
-      title: '🏆 Internship',
-      content: (
-        <>
-          <div className="card-highlight">Completed in 2026</div>
-          <p className="card-description-small">
-            Worked on practical software development and AI-related technologies while gaining industry experience.
-          </p>
-        </>
-      ),
+      title: 'Internship',
+      icon: Trophy,
+      watermark: Trophy,
+      highlight: 'Completed in 2026',
+      type: 'internship',
+      description: 'Worked on practical software development and AI-related technologies while gaining industry experience.',
       class: 'intern-card'
     },
     {
-      title: '🤖 Focus Areas',
-      content: (
-        <ul className="card-list">
-          <li>Data Science</li>
-          <li>Machine Learning</li>
-          <li>Artificial Intelligence</li>
-          <li>Full Stack Development</li>
-        </ul>
-      ),
+      title: 'Focus Areas',
+      icon: Target,
+      watermark: Target,
+      type: 'list',
+      list: ['Data Science', 'Machine Learning', 'Artificial Intelligence', 'Full Stack Development'],
       class: 'focus-card'
     },
     {
-      title: '🌱 Currently Learning',
-      content: (
-        <ul className="card-list">
-          <li>Deep Learning</li>
-          <li>Generative AI</li>
-          <li>MLOps</li>
-          <li>Large Language Models</li>
-          <li>Agentic AI</li>
-        </ul>
-      ),
+      title: 'Currently Learning',
+      icon: Brain,
+      watermark: Brain,
+      type: 'list',
+      list: ['Deep Learning', 'Generative AI', 'MLOps', 'Large Language Models', 'Agentic AI'],
       class: 'learning-card'
     },
     {
-      title: '🚀 Career Goal',
-      content: (
-        <>
-          <div className="card-subtitle-bold">Become a</div>
-          <ul className="card-list accent-list">
-            <li>Data Scientist</li>
-            <li>AI Researcher</li>
-            <li>Full Stack Developer</li>
-          </ul>
-        </>
-      ),
+      title: 'Career Goal',
+      icon: Rocket,
+      watermark: Rocket,
+      highlight: 'Become a',
+      type: 'list',
+      list: ['Data Scientist', 'AI Researcher', 'Full Stack Developer'],
       class: 'career-card'
     }
   ];
@@ -138,16 +128,6 @@ export default function About() {
             <div className="env-tag t-ds">Data Science</div>
             <div className="env-tag t-py">Python</div>
             <div className="env-tag t-re">React</div>
-            <div className="env-tag t-an">Analytics</div>
-            <div className="env-tag t-bd">Big Data</div>
-            <div className="env-tag t-dl">Deep Learning</div>
-            <div className="env-tag t-rs">Research</div>
-            <div className="env-tag t-db">Database</div>
-            <div className="env-tag t-nn">Neural Network</div>
-            <div className="env-tag t-dh">Dashboard</div>
-            <div className="env-tag t-cs">&lt;/&gt; Code</div>
-            <div className="env-tag t-gr">Graphs</div>
-            <div className="env-tag t-ch">Charts</div>
             
             {/* Floating Particles */}
             <div className="env-particle p-1"></div>
@@ -179,12 +159,74 @@ export default function About() {
 
       {/* Premium Info Cards Grid */}
       <div className="about-cards-grid">
-        {infoCards.map((card, i) => (
-          <div key={i} className={`info-card glass-card ${card.class}`}>
-            <h4 className="info-card-title">{card.title}</h4>
-            <div className="info-card-body">{card.content}</div>
-          </div>
-        ))}
+        {infoCards.map((card, i) => {
+          const Icon = card.icon;
+          const Watermark = card.watermark;
+          return (
+            <div key={i} className={`info-card glass-card ${card.class}`}>
+              {/* Card Watermark Icon */}
+              {Watermark && <Watermark className="card-watermark" />}
+
+              {/* Card Header with Circle Icon & Title */}
+              <div className="card-title-container">
+                <div className="card-title-icon-wrapper">
+                  <Icon size={18} />
+                </div>
+                <h4 className="card-title-text">{card.title}</h4>
+              </div>
+
+              {/* Card Body */}
+              <div className="info-card-body">
+                {card.highlight && (
+                  <div className="card-highlight">{card.highlight}</div>
+                )}
+                
+                {card.subtitle && (
+                  <div className="card-subtitle-bold">{card.subtitle}</div>
+                )}
+
+                {/* Render based on card type */}
+                {card.type === 'education' && card.details && (
+                  <div className="card-details-container">
+                    {card.details.map((detail, idx) => {
+                      const DetailIcon = detail.icon;
+                      return (
+                        <div key={idx} className="card-detail-badge">
+                          <DetailIcon size={14} className="badge-icon" />
+                          <span>{detail.text}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {card.type === 'projects' && card.tags && (
+                  <div className="card-tags-grid">
+                    {card.tags.map((tag, idx) => (
+                      <span key={idx} className="card-tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {card.type === 'internship' && card.description && (
+                  <p className="card-description-small">
+                    {card.description}
+                  </p>
+                )}
+
+                {card.type === 'list' && card.list && (
+                  <ul className="card-list">
+                    {card.list.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       {/* Tech Stack Grid */}

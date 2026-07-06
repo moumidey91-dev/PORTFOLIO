@@ -42,10 +42,10 @@ export default function Footer() {
 
         <div className="footer-right">
           <div className="footer-socials">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/moumidey91-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <Github size={18} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/moumi-dey-235004359/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <Linkedin size={18} />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">

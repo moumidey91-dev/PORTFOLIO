@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
+import projectBanking from '../assets/project_banking.png';
+import projectHotel from '../assets/project_hotel.jpg';
+import projectEcomAdmin from '../assets/project_ecom_admin.png';
+import projectEcomUser from '../assets/project_ecom_user.png';
 import './Projects.css';
 
 const Github = ({ size = 20 }) => (
@@ -10,61 +14,44 @@ const Github = ({ size = 20 }) => (
 
 export default function Projects() {
   const [filter, setFilter] = useState('All');
+  const [activeProject, setActiveProject] = useState(null);
 
   const categories = ['All', 'Web Dev', 'UI/UX', 'Python/AI'];
 
   const projectsData = [
     {
-      title: 'E-Commerce Platform',
+      title: 'FitFlow Fitness Dashboard',
       category: 'Web Dev',
-      tech: ['React', 'Node.js', 'Stripe'],
-      desc: 'A full-featured shopping solution with checkout integration and dashboard control.',
-      previewType: 'ecom',
+      tech: ['React', 'Node.js', 'Express', 'MongoDB'],
+      desc: 'Premium activity tracker panel showcasing steps metrics, sleep tracking sessions, and calorie alerts.',
+      previewType: 'bank',
       demo: '#',
       code: '#'
     },
     {
-      title: 'Fitness Tracker App',
-      category: 'Web Dev',
-      tech: ['React', 'Firebase', 'Chart.js'],
-      desc: 'Interactive health dashboard showing step metrics, sleep charts, and calories.',
-      previewType: 'fitness',
-      demo: '#',
-      code: '#'
-    },
-    {
-      title: 'AI Content Generator',
+      title: 'AI Chatbot - LangChain',
       category: 'Python/AI',
-      tech: ['Python', 'React', 'OpenAI'],
-      desc: 'Creative copywriter assistant utilizing natural language processing engines.',
-      previewType: 'ai',
+      tech: ['Python', 'LangChain', 'LLM', 'Embeddings'],
+      desc: 'Document analysis assistant powered by LLMs with semantic search capabilities using embeddings.',
+      previewType: 'hotel',
       demo: '#',
       code: '#'
     },
     {
-      title: 'Crypto Dashboard',
+      title: 'Ecommerce Admin Panel',
       category: 'Web Dev',
-      tech: ['React', 'Vite', 'WebSockets'],
-      desc: 'Real-time cryptocurrency valuation boards with price charts and order books.',
-      previewType: 'crypto',
+      tech: ['React', 'Tailwind CSS', 'Recharts'],
+      desc: 'MarketHub admin dashboard detailing revenue, order analytics, active customers, and real-time stock alerts.',
+      previewType: 'ecom-admin',
       demo: '#',
       code: '#'
     },
     {
-      title: 'Task Management',
+      title: 'Ecommerce MarketHub User',
       category: 'UI/UX',
-      tech: ['React', 'Framer Motion'],
-      desc: 'A highly interactive drag-and-drop Kanban board tool with task tracking tags.',
-      previewType: 'tasks',
-      demo: '#',
-      code: '#'
-    },
-    {
-      title: 'Real Estate Platform',
-      category: 'Web Dev',
-      tech: ['React', 'Laravel', 'Postgres'],
-      desc: 'Geographic listing directory with advanced filters and scheduling features.',
-      previewType: 'realestate',
+      tech: ['React', 'Vite', 'Framer Motion'],
+      desc: 'Secure user portal and onboarding login screen for the MarketHub storefront.',
+      previewType: 'ecom-user',
       demo: '#',
       code: '#'
     }
@@ -74,97 +61,19 @@ export default function Projects() {
     ? projectsData 
     : projectsData.filter(p => p.category === filter);
 
-  // Render a beautiful pure-CSS graphic mockup based on type
+  // Render the project screenshot image based on type
   const renderPreview = (type) => {
     switch (type) {
-      case 'ecom':
-        return (
-          <div className="css-mockup mock-ecom">
-            <div className="mock-card product-card">
-              <div className="product-img-placeholder"></div>
-              <div className="product-line short"></div>
-              <div className="product-line long"></div>
-              <div className="product-price-row">
-                <span className="mock-price">$129.99</span>
-                <span className="mock-buy-btn"></span>
-              </div>
-            </div>
-          </div>
-        );
-      case 'fitness':
-        return (
-          <div className="css-mockup mock-fitness">
-            <div className="mock-card fitness-card">
-              <div className="circular-progress-ring">
-                <div className="circle-inner">84%</div>
-              </div>
-              <div className="stat-bars">
-                <div className="stat-bar" style={{width: '80%'}}></div>
-                <div className="stat-bar" style={{width: '60%'}}></div>
-              </div>
-            </div>
-          </div>
-        );
-      case 'ai':
-        return (
-          <div className="css-mockup mock-ai">
-            <div className="mock-card prompt-card">
-              <div className="prompt-input">
-                <span className="prompt-cursor"></span>
-              </div>
-              <div className="prompt-response">
-                <div className="response-line" style={{width: '90%'}}></div>
-                <div className="response-line" style={{width: '75%'}}></div>
-                <div className="response-line" style={{width: '85%'}}></div>
-              </div>
-            </div>
-          </div>
-        );
-      case 'crypto':
-        return (
-          <div className="css-mockup mock-crypto">
-            <div className="mock-card crypto-card">
-              <div className="crypto-header">
-                <span className="coin-dot"></span>
-                <span className="coin-name">BTC</span>
-              </div>
-              <div className="crypto-chart">
-                <svg viewBox="0 0 100 40" className="chart-svg">
-                  <path d="M0,35 Q15,30 30,10 T60,25 T90,5 L100,5" fill="none" stroke="var(--primary)" strokeWidth="2" />
-                </svg>
-              </div>
-              <div className="coin-value">+4.82%</div>
-            </div>
-          </div>
-        );
-      case 'tasks':
-        return (
-          <div className="css-mockup mock-tasks">
-            <div className="mock-kanban">
-              <div className="kanban-col">
-                <div className="kanban-card"></div>
-                <div className="kanban-card active-drag"></div>
-              </div>
-              <div className="kanban-col">
-                <div className="kanban-card"></div>
-              </div>
-            </div>
-          </div>
-        );
-      case 'realestate':
-        return (
-          <div className="css-mockup mock-realestate">
-            <div className="mock-card estate-card">
-              <div className="estate-img"></div>
-              <div className="estate-info">
-                <span className="estate-price">$450,000</span>
-                <span className="estate-location"></span>
-              </div>
-            </div>
-          </div>
-        );
+      case 'bank':
+        return <img src={projectBanking} alt="Banking Management System" className="project-preview-img" />;
+      case 'hotel':
+        return <img src={projectHotel} alt="Hotel Booking Cancellation Analysis" className="project-preview-img" />;
+      case 'ecom-admin':
+        return <img src={projectEcomAdmin} alt="Ecommerce Admin Panel" className="project-preview-img" />;
+      case 'ecom-user':
+        return <img src={projectEcomUser} alt="Ecommerce MarketHub User Storefront" className="project-preview-img" />;
       default:
-        return <div className="css-mockup"></div>;
+        return null;
     }
   };
 
@@ -190,46 +99,45 @@ export default function Projects() {
 
       {/* Projects Grid */}
       <div className="projects-grid">
-        {filteredProjects.map((project, i) => (
-          <div key={i} className="project-card glass-card">
-            {/* Browser Header Mockup */}
-            <div className="project-window-header">
-              <span className="dot red"></span>
-              <span className="dot yellow"></span>
-              <span className="dot green"></span>
-              <span className="window-tab">{project.title}</span>
-            </div>
+        {filteredProjects.map((project, i) => {
+          const isActive = activeProject === i;
+          return (
+            <div 
+              key={i} 
+              className={`project-card glass-card ${isActive ? 'active' : ''}`}
+              onClick={() => setActiveProject(isActive ? null : i)}
+            >
+              {/* Image Preview Container */}
+              <div className="project-preview">
+                {renderPreview(project.previewType)}
+                
+                {/* Details Frosted Glass Overlay */}
+                <div className={`project-overlay ${isActive ? 'visible' : ''}`}>
+                  <span className="project-overlay-category">{project.category}</span>
+                  <h3 className="project-overlay-title">{project.title}</h3>
+                  <p className="project-overlay-desc">{project.desc}</p>
+                  
+                  <div className="project-overlay-tech">
+                    {project.tech.map((t, idx) => (
+                      <span key={idx} className="tech-pill">{t}</span>
+                    ))}
+                  </div>
 
-            {/* CSS Graphic Mockup Preview */}
-            <div className="project-preview">
-              {renderPreview(project.previewType)}
-            </div>
-
-            {/* Content Details */}
-            <div className="project-info">
-              <span className="project-category">{project.category}</span>
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-desc">{project.desc}</p>
-              
-              <div className="project-tech">
-                {project.tech.map((t, idx) => (
-                  <span key={idx} className="tech-badge">{t}</span>
-                ))}
+                  <div className="project-overlay-links" onClick={(e) => e.stopPropagation()}>
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="overlay-link btn-demo">
+                      <ExternalLink size={14} />
+                      Live Demo
+                    </a>
+                    <a href={project.code} target="_blank" rel="noopener noreferrer" className="overlay-link btn-code">
+                      <Github size={14} />
+                      Code
+                    </a>
+                  </div>
+                </div>
               </div>
-
-              <div className="project-links">
-                <a href={project.demo} className="project-link btn-secondary">
-                  <ExternalLink size={16} />
-                  Demo
-                </a>
-                <a href={project.code} className="project-link btn-secondary">
-                  <Github size={16} />
-                  Code
-                </a>
-              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

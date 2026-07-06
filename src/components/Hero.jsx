@@ -35,16 +35,16 @@ export default function Hero() {
         {/* Hero Content */}
         <div className="hero-content">
           <div className="social-icons">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link github" aria-label="GitHub">
+            <a href="https://github.com/moumidey91-dev" target="_blank" rel="noopener noreferrer" className="social-link github" aria-label="GitHub">
               <Github size={18} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link linkedin" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/moumi-dey-235004359/" target="_blank" rel="noopener noreferrer" className="social-link linkedin" aria-label="LinkedIn">
               <Linkedin size={18} />
             </a>
             <a href="https://kaggle.com" target="_blank" rel="noopener noreferrer" className="social-link kaggle" aria-label="Kaggle">
               <Kaggle size={18} />
             </a>
-            <a href="mailto:moumi.dey@example.com" className="social-link mail" aria-label="Email">
+            <a href="mailto:moumidey91@gmail.com" className="social-link mail" aria-label="Email">
               <Mail size={18} />
             </a>
           </div>
