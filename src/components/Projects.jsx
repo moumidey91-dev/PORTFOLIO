@@ -101,8 +101,13 @@ export default function Projects() {
         {filteredProjects.map((project, i) => {
           return (
             <div key={i} className="project-card">
-              {/* Left Column: Project Details */}
-              <div className="project-info">
+              {/* Underlying Image Preview */}
+              <div className="project-preview">
+                {renderPreview(project.previewType)}
+              </div>
+
+              {/* Hover Overlay containing details */}
+              <div className="project-overlay">
                 <span className="project-category">{project.category}</span>
                 <h3 className="project-title">{project.title}</h3>
                 
@@ -122,13 +127,6 @@ export default function Projects() {
                     <Github size={14} />
                     Code
                   </a>
-                </div>
-              </div>
-
-              {/* Right Column: Visual Mockup */}
-              <div className="project-preview">
-                <div className="mockup-frame">
-                  {renderPreview(project.previewType)}
                 </div>
               </div>
             </div>
