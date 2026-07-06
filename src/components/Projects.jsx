@@ -14,43 +14,42 @@ const Github = ({ size = 20 }) => (
 
 export default function Projects() {
   const [filter, setFilter] = useState('All');
-  const [activeProject, setActiveProject] = useState(null);
 
   const categories = ['All', 'Web Dev', 'UI/UX', 'Python/AI'];
 
   const projectsData = [
     {
-      title: 'FitFlow Fitness Dashboard',
+      title: 'Banking System Management Admin Portal',
       category: 'Web Dev',
       tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-      desc: 'Premium activity tracker panel showcasing steps metrics, sleep tracking sessions, and calorie alerts.',
+      desc: 'A secure and comprehensive banking administration system to manage customer accounts, transactions, and logs.',
       previewType: 'bank',
       demo: '#',
       code: '#'
     },
     {
-      title: 'AI Chatbot - LangChain',
+      title: 'Hotel Management Data Analysis Project',
       category: 'Python/AI',
-      tech: ['Python', 'LangChain', 'LLM', 'Embeddings'],
-      desc: 'Document analysis assistant powered by LLMs with semantic search capabilities using embeddings.',
+      tech: ['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
+      desc: 'Advanced hotel booking cancellations and guest analytics dashboard designed to optimize booking rates and revenue streams.',
       previewType: 'hotel',
       demo: '#',
       code: '#'
     },
     {
-      title: 'Ecommerce Admin Panel',
+      title: 'E-Commerce Admin Panel',
       category: 'Web Dev',
       tech: ['React', 'Tailwind CSS', 'Recharts'],
-      desc: 'MarketHub admin dashboard detailing revenue, order analytics, active customers, and real-time stock alerts.',
+      desc: 'Interactive business management panel featuring real-time sales metrics, product inventory details, and client activity logs.',
       previewType: 'ecom-admin',
       demo: '#',
       code: '#'
     },
     {
-      title: 'Ecommerce MarketHub User',
+      title: 'E-Commerce MarketHub',
       category: 'UI/UX',
       tech: ['React', 'Vite', 'Framer Motion'],
-      desc: 'Secure user portal and onboarding login screen for the MarketHub storefront.',
+      desc: 'Modern customer storefront experience for MarketHub featuring curated product pages, smooth transitions, and cart functionality.',
       previewType: 'ecom-user',
       demo: '#',
       code: '#'
@@ -100,39 +99,36 @@ export default function Projects() {
       {/* Projects Grid */}
       <div className="projects-grid">
         {filteredProjects.map((project, i) => {
-          const isActive = activeProject === i;
           return (
-            <div 
-              key={i} 
-              className={`project-card glass-card ${isActive ? 'active' : ''}`}
-              onClick={() => setActiveProject(isActive ? null : i)}
-            >
-              {/* Image Preview Container */}
-              <div className="project-preview">
-                {renderPreview(project.previewType)}
+            <div key={i} className="project-card">
+              {/* Left Column: Project Details */}
+              <div className="project-info">
+                <span className="project-category">{project.category}</span>
+                <h3 className="project-title">{project.title}</h3>
                 
-                {/* Details Frosted Glass Overlay */}
-                <div className={`project-overlay ${isActive ? 'visible' : ''}`}>
-                  <span className="project-overlay-category">{project.category}</span>
-                  <h3 className="project-overlay-title">{project.title}</h3>
-                  <p className="project-overlay-desc">{project.desc}</p>
-                  
-                  <div className="project-overlay-tech">
-                    {project.tech.map((t, idx) => (
-                      <span key={idx} className="tech-pill">{t}</span>
-                    ))}
-                  </div>
+                {/* Tech Stack List - Middle dot separated */}
+                <div className="project-tech">
+                  {project.tech.join(' · ')}
+                </div>
+                
+                <p className="project-desc">{project.desc}</p>
+                
+                <div className="project-links">
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-btn primary">
+                    <ExternalLink size={14} />
+                    Live Demo
+                  </a>
+                  <a href={project.code} target="_blank" rel="noopener noreferrer" className="project-btn secondary">
+                    <Github size={14} />
+                    Code
+                  </a>
+                </div>
+              </div>
 
-                  <div className="project-overlay-links" onClick={(e) => e.stopPropagation()}>
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="overlay-link btn-demo">
-                      <ExternalLink size={14} />
-                      Live Demo
-                    </a>
-                    <a href={project.code} target="_blank" rel="noopener noreferrer" className="overlay-link btn-code">
-                      <Github size={14} />
-                      Code
-                    </a>
-                  </div>
+              {/* Right Column: Visual Mockup */}
+              <div className="project-preview">
+                <div className="mockup-frame">
+                  {renderPreview(project.previewType)}
                 </div>
               </div>
             </div>
